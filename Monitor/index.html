@@ -30,16 +30,20 @@
 <div class="row">
   <div class="three columns">
     <h1>ChargeQ</h1>
+    <h3>Dashboard</h3>
   </div>
 </div>
 
 <div class="row">
   <div class="three columns">
-    <div id="charge-queue-div">
-      <table>
-        <vehicle v-for="item in vehicles" v-bind:vehicles="item" v-bind:key="item.id">
-        </vehicle>
-      </ul>
+    <div id="vehicle-table-div">
+    <table>
+      <vehicle-table
+        v-for="vehicle in vehicles"
+        :key="vehicle.id"
+        :vehicle="vehicle"
+      ></vehicle-table>
+    </table>
     </div>
   </div>
   
@@ -49,39 +53,26 @@
 
 <script type="text/javascript">
 
-const ChargeQ = {
+const App = {
   data() {
     return {
-      charge-queue-data: [
-        { id:0, text: 'Car A' },
-        { id:1, text: 'Car B' },
-        { id:2, text: 'Car C' }
-      ],
-      newVehicle: "",
-      id: 2
-    }
-  },
-  methods: {
-    addVehicle: function() {
-    var value = this.newVehicle;
-    this.charge-queue-data.push({
-      id: this.id++,
-      text: value,
-      completed: false
-    });
-    this.newVehicle = "";
+      vehicles: [
+        { id: 1, title: 'Car A' },
+        { id: 2, title: 'Car B' },
+        { id: 3, title: 'Car C' }
+      ]
     }
   }
 }
 
-const app = Vue.createApp(ChargeQ)
+const app = Vue.createApp(App)
 
-app.component('charge-queue-component', {
-  props: ['vehicles'],
-  template: `<li><input class="toggle" type="checkbox" v-model="vehicle.charge" />{{ vehicle.text }}</li>`
+app.component('vehicle-table', {
+  props: ['vehicle'],
+  template: `<tr><th>{{ vehicle.id }}</th><th>{{ vehicle.title }}</th></tr>`
 })
 
-app.mount('#charge-queue-div')
+app.mount('#vehicle-table-div')
 
 </script>
 
