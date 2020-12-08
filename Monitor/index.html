@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>ChargeQ</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="stylesheets/normalize.css">
+  <link rel="stylesheet" href="stylesheets/skeleton.css">
+
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Load Vue.js -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="row">
+  <div class="three columns">
+    <h1>ChargeQ</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="three columns">
+    <div id="charge-queue-div">
+      <table>
+        <vehicle v-for="item in vehicles" v-bind:vehicles="item" v-bind:key="item.id">
+        </vehicle>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="three columns">
+      <ul>
+        <li>Test</li>
+        <li>Test2/li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+const ChargeQ = {
+  data() {
+    return {
+      charge-queue-data: [
+        { id:0, text: 'Car A' },
+        { id:1, text: 'Car B' },
+        { id:2, text: 'Car C' }
+      ],
+      newVehicle: "",
+      id: 2
+    }
+  },
+  methods: {
+    addVehicle: function() {
+    var value = this.newVehicle;
+    this.charge-queue-data.push({
+      id: this.id++,
+      text: value,
+      completed: false
+    });
+    this.newVehicle = "";
+    }
+  }
+}
+
+const app = Vue.createApp(ChargeQ)
+
+app.component('charge-queue-component', {
+  props: ['vehicles'],
+  template: `<li><input class="toggle" type="checkbox" v-model="vehicle.charge" />{{ vehicle.text }}</li>`
+})
+
+app.mount('#charge-queue-div')
+
+</script>
+
+</body>
+
+</html>
