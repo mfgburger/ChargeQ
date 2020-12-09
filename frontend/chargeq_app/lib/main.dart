@@ -19,17 +19,23 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    new Future.delayed(
-        const Duration(seconds: 2),
-        () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => LoginPage()),
-            ));
+    new Future.delayed(const Duration(seconds: 2),
+        () => Navigator.pushReplacement(context, _createRoute()));
+  }
+
+  Route _createRoute() {
+    return PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => LoginPage(),
+        transitionDuration: Duration(milliseconds: 1500),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          animation =
+              new CurvedAnimation(parent: animation, curve: Curves.easeIn);
+          return FadeTransition(opacity: animation, child: child);
+        });
   }
 
   @override
   Widget build(BuildContext context) {
-    timeDilation = 7.0;
     return LoadingPage();
   }
 }
