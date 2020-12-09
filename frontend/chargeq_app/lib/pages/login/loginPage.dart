@@ -1,3 +1,4 @@
+import 'package:chargeq_app/pages/loading/loadingPage.dart';
 import 'package:chargeq_app/pages/main/mainPage.dart';
 import 'package:chargeq_app/res/theme.dart';
 import 'package:flutter/material.dart';
@@ -34,23 +35,12 @@ class _InitialStartupPageState extends State<LoginPage> {
           child: ListView(
             shrinkWrap: true,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Text("ChargeQ",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 40)),
-              ),
-              Text("MyCharge",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 25,
-                      color: Colors.black87)),
               Container(
-                height: MediaQuery.of(context).size.height * 0.2,
+                  padding: EdgeInsets.only(top: 10),
+                  height: 100,
+                  child: LogoHero()),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.15,
               ),
               Text("Welcome!",
                   textAlign: TextAlign.center,

@@ -3,6 +3,7 @@ import 'package:chargeq_app/pages/login/loginPage.dart';
 import 'package:chargeq_app/pages/main/mainPage.dart';
 import 'package:chargeq_app/res/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 void main() {
   runApp(
@@ -19,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     new Future.delayed(
-        const Duration(seconds: 3),
+        const Duration(seconds: 2),
         () => Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => LoginPage()),
@@ -28,6 +29,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    timeDilation = 7.0;
     return LoadingPage();
   }
 }

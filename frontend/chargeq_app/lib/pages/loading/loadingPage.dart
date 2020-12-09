@@ -10,6 +10,17 @@ class LoadingPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: myGreen,
       body: Center(
+        child: LogoHero(),
+      ),
+    );
+  }
+}
+
+class LogoHero extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Hero(
+        tag: "logoHero",
         child: Column(
           children: [
             Spacer(),
@@ -25,8 +36,6 @@ class LoadingPage extends StatelessWidget {
                     color: Colors.black87)),
             Spacer()
           ],
-        ),
-      ),
-    );
+        ));
   }
 }
