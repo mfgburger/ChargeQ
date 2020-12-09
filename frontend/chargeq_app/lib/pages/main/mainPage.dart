@@ -9,7 +9,7 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 12),
           child: ListView(
             children: [
               Padding(

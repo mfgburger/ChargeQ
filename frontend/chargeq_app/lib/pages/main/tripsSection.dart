@@ -79,11 +79,11 @@ class SingleTrip extends StatelessWidget {
           Stack(
             children: [
               Container(
-                  width: 50.0,
-                  height: 50.0,
+                  width: 40,
+                  height: 40,
                   decoration: new BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(color: myGreen, width: 5),
+                    border: Border.all(color: myGreen, width: 3),
                   )),
               Positioned.fill(
                   child: Align(
@@ -103,7 +103,7 @@ class SingleTrip extends StatelessWidget {
                             ),
                           ),
                           Text("kWh",
-                              style: TextStyle(fontSize: 12),
+                              style: TextStyle(fontSize: 10, height: 0.8),
                               textAlign: TextAlign.center)
                         ],
                       ))),
@@ -113,16 +113,16 @@ class SingleTrip extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: TextStyle(fontWeight: FontWeight.w800)),
-              Text(time)
+              Text(title, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800)),
+              Text(time, style: TextStyle(fontSize: 12))
             ],
           ),
           Spacer(flex: 2),
-          Text(from, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
+          Text(from, style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
           Spacer(),
           Icon(Icons.arrow_forward_ios, color: myGreen, size: 20),
           Spacer(),
-          Text(to, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600))
+          Text(to, style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600))
         ],
       ),
     );
