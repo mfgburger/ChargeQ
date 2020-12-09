@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>ChargeQ</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="stylesheets/normalize.css">
+  <link rel="stylesheet" href="stylesheets/skeleton.css">
+
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Load Vue.js -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="row">
+  <div class="three columns">
+    <h1>ChargeQ</h1>
+    <h3>Dashboard</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="three columns">
+    <div id="vehicle-table-div">
+    <table>
+      <vehicle-table
+        v-for="vehicle in vehicles"
+        :key="vehicle.id"
+        :vehicle="vehicle"
+      ></vehicle-table>
+    </table>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+const App = {
+  data() {
+    return {
+      vehicles: [
+        { id: 1, title: 'Car A' },
+        { id: 2, title: 'Car B' },
+        { id: 3, title: 'Car C' }
+      ]
+    }
+  }
+}
+
+const app = Vue.createApp(App)
+
+app.component('vehicle-table', {
+  props: ['vehicle'],
+  template: `<tr><th>{{ vehicle.id }}</th><th>{{ vehicle.title }}</th></tr>`
+})
+
+app.mount('#vehicle-table-div')
+
+</script>
+
+</body>
+
+</html>
