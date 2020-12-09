@@ -17,25 +17,42 @@ class LoadingPage extends StatelessWidget {
 }
 
 class LogoHero extends StatelessWidget {
+  Widget _flightShuttleBuilder(
+    BuildContext flightContext,
+    Animation<double> animation,
+    HeroFlightDirection flightDirection,
+    BuildContext fromHeroContext,
+    BuildContext toHeroContext,
+  ) {
+    return DefaultTextStyle(
+      style: DefaultTextStyle.of(toHeroContext).style,
+      child: toHeroContext.widget,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Hero(
         tag: "logoHero",
-        child: Column(
-          children: [
-            Spacer(),
-            Text("ChargeQ",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 40)),
-            Text("MyCharge",
-                style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 25,
-                    color: Colors.black87)),
-            Spacer()
-          ],
+        flightShuttleBuilder: _flightShuttleBuilder,
+        child: Container(
+          height: 100,
+          child: Column(
+            children: [
+              Spacer(),
+              Text("ChargeQ",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 40)),
+              Text("MyCharge",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 25,
+                      color: Colors.black87)),
+              Spacer()
+            ],
+          ),
         ));
   }
 }

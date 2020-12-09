@@ -35,10 +35,7 @@ class _InitialStartupPageState extends State<LoginPage> {
           child: ListView(
             shrinkWrap: true,
             children: <Widget>[
-              Container(
-                  padding: EdgeInsets.only(top: 10),
-                  height: 100,
-                  child: LogoHero()),
+              LogoHero(),
               Container(
                 height: MediaQuery.of(context).size.height * 0.15,
               ),
