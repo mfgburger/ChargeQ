@@ -12,14 +12,16 @@ class _TripsSectionState extends State<TripsSection> {
     return Column(children: [
       Row(
         children: [
-          Text("Upcoming trips", style: TextStyle(fontWeight: FontWeight.w600)),
+          Text("Upcoming trips", style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: Colors.black87)),
           Spacer(),
           MaterialButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
               color: myGreen,
               onPressed: () {
                 print("hello");
               },
-              child: Text("add trip",
+              child: Text("+ add trip",
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.w600)))
         ],
@@ -74,20 +76,53 @@ class SingleTrip extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Row(
         children: [
-          Text(kWh + "\nkWh", textAlign: TextAlign.center),
+          Stack(
+            children: [
+              Container(
+                  width: 50.0,
+                  height: 50.0,
+                  decoration: new BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: myGreen, width: 5),
+                  )),
+              Positioned.fill(
+                  child: Align(
+                      alignment: Alignment.center,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5),
+                            child: Text(
+                              kWh,
+                              style: TextStyle(
+                                  height: 0.8,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 16),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          Text("kWh",
+                              style: TextStyle(fontSize: 12),
+                              textAlign: TextAlign.center)
+                        ],
+                      ))),
+            ],
+          ),
           Spacer(flex: 2),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title, style: TextStyle(fontWeight: FontWeight.w800)),
               Text(time)
             ],
           ),
           Spacer(flex: 2),
-          Text(from, style: TextStyle(fontSize: 12)),
+          Text(from, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
           Spacer(),
           Icon(Icons.arrow_forward_ios, color: myGreen, size: 20),
           Spacer(),
-          Text(to, style: TextStyle(fontSize: 12))
+          Text(to, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600))
         ],
       ),
     );

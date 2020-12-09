@@ -42,11 +42,13 @@ class LogoHero extends StatelessWidget {
               Spacer(),
               Text("ChargeQ",
                   style: TextStyle(
+                      height: 0.8,
                       color: Colors.white,
                       fontWeight: FontWeight.w800,
                       fontSize: 40)),
               Text("MyCharge",
                   style: TextStyle(
+                      height: 0.9,
                       fontWeight: FontWeight.w700,
                       fontSize: 25,
                       color: Colors.black87)),
