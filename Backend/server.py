@@ -19,7 +19,7 @@ def return_dummy():
         "capacity": 58,
         "total_range": 420,
         "level": 50,
-        "minutes_until_departure": 60,
+        "minutes_until_departure": 60, # todo change to hours_until_departure
         "target_range": 300,
     }
     return vehicle_status
