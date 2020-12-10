@@ -23,21 +23,24 @@ def random_car_list(length=5):
 
 
 def optimize(list_of_cars):
-    loading_actions = []
+    # "parametric" prioritization
+    list_of_cars = sorted(list_of_cars, key=lambda student: student.state_of_charge) # todo: naive
+    # calculate times
+    # return loss
+    loading_actions = [LoadingAction(car) for car in list_of_cars]
+    # todo look at https://en.wikipedia.org/wiki/Scheduling_(computing)
+    # how can I implement differnet algorithms side by side in the best way?
+    # look ar example projects
     return loading_actions
 
 
 class LoadingAction:
 
-    def __init__(self, car, power, start_time, end_time):
+    def __init__(self, car):
         self._car = car
         self._power = power
         self._start_time = start_time
         self._end_time = end_time
-
-    def calculate_cost(self):
-        return self._car.estimate_delta_capacity/self.car
-
 
 class Car:
 
@@ -57,6 +60,9 @@ class Car:
     def estimate_delta_capacity(self):
         delta_capacity = self._target_range * self._consumption_kw_per_km # todo: naive
         return delta_capacity
+
+    def calculate_cost(self):
+        return self.estimate_delta_capacity # todo: naive
 
 
 if __name__ == "__main__":
