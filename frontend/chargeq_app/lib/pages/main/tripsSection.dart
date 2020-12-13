@@ -1,3 +1,4 @@
+import 'package:chargeq_app/pages/main/addTripDialog.dart';
 import 'package:chargeq_app/res/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -12,14 +13,20 @@ class _TripsSectionState extends State<TripsSection> {
     return Column(children: [
       Row(
         children: [
-          Text("Upcoming trips", style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: Colors.black87)),
+          Text("Upcoming trips",
+              style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w800,
+                  color: Colors.black87)),
           Spacer(),
           MaterialButton(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
               color: myGreen,
               onPressed: () {
-                print("hello");
+                showDialog(
+                    context: context,
+                    builder: (context) => addTripDialog(context));
               },
               child: Text("+ add trip",
                   style: TextStyle(
@@ -113,12 +120,14 @@ class SingleTrip extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800)),
+              Text(title,
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800)),
               Text(time, style: TextStyle(fontSize: 12))
             ],
           ),
           Spacer(flex: 2),
-          Text(from, style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
+          Text(from,
+              style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
           Spacer(),
           Icon(Icons.arrow_forward_ios, color: myGreen, size: 20),
           Spacer(),
