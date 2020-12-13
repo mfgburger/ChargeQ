@@ -1,30 +1,46 @@
 import uuid
 import numpy as np
 
+class CarList:
 
-def random_car_list(length=5):
-    ranges = np.random.poisson(lam=10, size=length)  # in km
-    charges = np.random.uniform(low=0.0, high=1.0, size=length) # charge from 0-1
-    times = np.random.poisson(lam=10, size=length)  # in h
-    priorities = np.random.randint(2, size=length) + 1  # 1: eco, 2: fast
-    consumptions = [0.2]*length #kW/km #todo https://www.virta.global/blog/ev-charging-101-how-much-electricity-does-an-electric-car-use
-    speeds = 10 ** (np.random.randint(2,
-                                      size=length) + 1)  # 10kW or 100kW https://www.transportenvironment.org/sites/te/files/publications/01%202020%20Draft%20TE%20Infrastructure%20Report%20Final.pdf
-    list_of_cars = [Car(id=uuid.uuid4().hex,
-                        state_of_charge = charges[i],
-                        target_range=ranges[i],
-                        hours_to_departure=times[i],
-                        consumption_per_km=consumptions[i],
-                        is_priority=priorities[i],
-                        max_charging_speed=speeds[i],
-                        station_id=uuid.uuid4().hex
-                        ) for i in range(length - 1)]
+    def __init__(self):
+        self.car_list = 0
+
+    def random_car_list(self, length=5):
+        ranges = np.random.poisson(lam=10, size=length)  # in km
+        charges = np.random.uniform(low=0.0, high=1.0, size=length) # charge from 0-1
+        times = np.random.poisson(lam=10, size=length)  # in h
+        priorities = np.random.randint(2, size=length) + 1  # 1: eco, 2: fast
+        consumptions = [0.2]*length #kW/km #todo https://www.virta.global/blog/ev-charging-101-how-much-electricity-does-an-electric-car-use
+        speeds = 10 ** (np.random.randint(2,
+                                          size=length) + 1)  # 10kW or 100kW https://www.transportenvironment.org/sites/te/files/publications/01%202020%20Draft%20TE%20Infrastructure%20Report%20Final.pdf
+        list_of_cars = [Car(id=uuid.uuid4().hex,
+                            state_of_charge = charges[i],
+                            target_range=ranges[i],
+                            hours_to_departure=times[i],
+                            consumption_per_km=consumptions[i],
+                            is_priority=priorities[i],
+                            max_charging_speed=speeds[i],
+                            station_id=uuid.uuid4().hex
+                            ) for i in range(length - 1)]
+        self.car_list=list_of_cars
     return list_of_cars
 
+    def push_random_car(self, car_list):
+        car_list.push()
+        return car_list
 
-def optimize(list_of_cars):
+    def pop_car_id(self, car_list, car):
+        car_list.pop()
+        return car_list
+
+
+def optimize(list_of_cars, algorithm_name="classical"):
+    if algorithm_name=="classical":
     # "parametric" prioritization
-    list_of_cars = sorted(list_of_cars, key=lambda car: car._state_of_charge) # todo: naive
+        classical()
+    else:
+        classical()
     # calculate times
     # return loss
     loading_actions = [LoadingAction(car) for car in list_of_cars]
@@ -35,6 +51,11 @@ def optimize(list_of_cars):
     # look ar example projects
     return loading_actions
 
+def classical()
+    list_of_cars = sorted(list_of_cars, key=lambda car: car._state_of_charge)  # todo: naive
+
+def quantum()
+    list_of_cars = sorted(list_of_cars, key=lambda car: car._state_of_charge)  # todo: naive
 
 class LoadingAction:
 
