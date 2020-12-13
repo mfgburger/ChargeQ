@@ -12,8 +12,7 @@ class CarList:
         times = np.random.poisson(lam=10, size=length)  # in h
         priorities = np.random.randint(2, size=length) + 1  # 1: eco, 2: fast
         consumptions = [0.2]*length #kW/km #todo https://www.virta.global/blog/ev-charging-101-how-much-electricity-does-an-electric-car-use
-        speeds = 10 ** (np.random.randint(2,
-                                          size=length) + 1)  # 10kW or 100kW https://www.transportenvironment.org/sites/te/files/publications/01%202020%20Draft%20TE%20Infrastructure%20Report%20Final.pdf
+        speeds = 10 ** (np.random.randint(2, size=length) + 1)  # 10kW or 100kW https://www.transportenvironment.org/sites/te/files/publications/01%202020%20Draft%20TE%20Infrastructure%20Report%20Final.pdf
         list_of_cars = [Car(id=uuid.uuid4().hex,
                             state_of_charge = charges[i],
                             target_range=ranges[i],
@@ -23,16 +22,18 @@ class CarList:
                             max_charging_speed=speeds[i],
                             station_id=uuid.uuid4().hex
                             ) for i in range(length - 1)]
-        self.car_list=list_of_cars
+        # This leads to an exception so I commented it out for now
+        #self.car_list = list_of_cars
         return list_of_cars
 
-    def push_random_car(self, car_list):
-        car_list.push()
-        return car_list
+    # Do we need this if we make it stateless?
+    #def push_random_car(self, car_list):
+    #    car_list.push()
+    #    return car_list
 
-    def pop_car_id(self, car_list, car):
-        car_list.pop()
-        return car_list
+    #def pop_car_id(self, car_list, car):
+    #    car_list.pop()
+    #    return car_list
 
 
 def optimize(list_of_cars, algorithm_name="classical"):
