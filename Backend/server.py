@@ -14,20 +14,14 @@ CORS(app)
 def greet_user():
     return "This is the ChargeQ API."
 
-@app.route('/dummy')
-def return_dummy():
-    vehicle_status = {
-        "id": 0,
-        "capacity": 58,
-        "total_range": 420,
-        "level": 50,
-        "minutes_until_departure": 60, # todo change to hours_until_departure
-        "target_range": 300,
-    }
-    return vehicle_status
-    
+
+@app.route('/return_car', )
+def return_car(number_of_cars):
+    return list_of_cars
+
+
 @app.route('/optimize', methods=['GET', 'POST'])
-def optimize():
+def optimize(car_list, algorithm_name):
     if request.method == "GET":
         # return the current queue
         pass

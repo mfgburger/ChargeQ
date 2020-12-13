@@ -73,6 +73,7 @@ class _InitialStartupPageState extends State<LoginPage> {
                 child: TextFormField(
                   controller: _emailController,
                   style: Theme.of(context).textTheme.button,
+                  obscureText: true,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderSide: BorderSide.none,
