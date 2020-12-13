@@ -19,8 +19,8 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    new Future.delayed(const Duration(seconds: 2),
-        () => Navigator.pushReplacement(context, _createRoute()));
+    /*new Future.delayed(const Duration(seconds: 2),
+        () => Navigator.pushReplacement(context, _createRoute()));*/
   }
 
   Route _createRoute() {
@@ -36,6 +36,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return LoadingPage();
+    return MainPage();
+    //return LoadingPage();
   }
 }
