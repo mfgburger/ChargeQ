@@ -31,6 +31,7 @@ def optimize(list_of_cars):
     # todo look at https://en.wikipedia.org/wiki/Scheduling_(computing)
     # todo look at  https://developers.google.com/optimization/scheduling/job_shop
     # how can I implement different algorithms side by side in the best way?
+    # todo: for a start: earlierst deadline first (EDF)
     # look ar example projects
     return loading_actions
 
@@ -42,6 +43,7 @@ class LoadingAction:
         self._power = power
         self._start_time = start_time
         self._end_time = end_time
+
 
 class Car:
 
