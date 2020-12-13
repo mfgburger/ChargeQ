@@ -24,12 +24,13 @@ def random_car_list(length=5):
 
 def optimize(list_of_cars):
     # "parametric" prioritization
-    list_of_cars = sorted(list_of_cars, key=lambda student: student.state_of_charge) # todo: naive
+    list_of_cars = sorted(list_of_cars, key=lambda car: car._state_of_charge) # todo: naive
     # calculate times
     # return loss
     loading_actions = [LoadingAction(car) for car in list_of_cars]
     # todo look at https://en.wikipedia.org/wiki/Scheduling_(computing)
-    # how can I implement differnet algorithms side by side in the best way?
+    # todo look at  https://developers.google.com/optimization/scheduling/job_shop
+    # how can I implement different algorithms side by side in the best way?
     # look ar example projects
     return loading_actions
 
@@ -66,6 +67,6 @@ class Car:
 
 
 if __name__ == "__main__":
-    car_list = random_car_list(5) # generate a number of cars for fun
+    car_list = random_car_list(100) # generate a number of cars for fun
     [car.print_values() for car in car_list] # Look at the generated values for fun
     optimize(car_list) # give him the list for optimization
