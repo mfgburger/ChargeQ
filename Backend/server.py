@@ -5,6 +5,7 @@
 #############################################
 
 from flask import Flask
+from ChargeQ.optimizer import *
 
 app = Flask(__name__)
 
