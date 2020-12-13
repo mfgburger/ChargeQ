@@ -1,4 +1,4 @@
-import 'package:chargeq_app/pages/main/addTripDialog.dart';
+import 'package:chargeq_app/pages/main/tripDialog.dart';
 import 'package:chargeq_app/res/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +26,7 @@ class _TripsSectionState extends State<TripsSection> {
               onPressed: () {
                 showDialog(
                     context: context,
-                    builder: (context) => addTripDialog(context));
+                    builder: (context) => TripDialog(isPriority: true));
               },
               child: Text("+ add trip",
                   style: TextStyle(
