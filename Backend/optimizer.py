@@ -24,7 +24,7 @@ class CarList:
                             station_id=uuid.uuid4().hex
                             ) for i in range(length - 1)]
         self.car_list=list_of_cars
-    return list_of_cars
+        return list_of_cars
 
     def push_random_car(self, car_list):
         car_list.push()
@@ -51,10 +51,10 @@ def optimize(list_of_cars, algorithm_name="classical"):
     # look ar example projects
     return loading_actions
 
-def classical()
+def classical():
     list_of_cars = sorted(list_of_cars, key=lambda car: car._state_of_charge)  # todo: naive
 
-def quantum()
+def quantum():
     list_of_cars = sorted(list_of_cars, key=lambda car: car._state_of_charge)  # todo: naive
 
 class LoadingAction:
