@@ -7,7 +7,7 @@ from flask import Flask
 from flask_cors import CORS
 
 # Import our optimizer
-from optimizer import CarList
+from generator import return_dict_of_random_cars
 
 app = Flask(__name__)
 CORS(app) # This enables cross-site requests, i.e. calling our API from anwhere
@@ -18,7 +18,7 @@ def greet_user():
 
 @app.route('/cars', )
 def return_list_of_random_cars(number_of_cars=10):
-    list_of_cars = CarList.random_car_list(number_of_cars)
+    list_of_cars = return_dict_of_random_cars(number_of_cars)
     return list_of_cars
 
 
