@@ -53,6 +53,10 @@
 
 <script type="text/javascript">
 
+fetch('http://localhost:5000/dummy')
+  .then(response => response.json())
+  .then(data => console.log(data));
+
 const App = {
   data() {
     return {
