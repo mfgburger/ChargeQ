@@ -21,7 +21,7 @@ class CarList:
                             is_priority=priorities[i],
                             max_charging_speed=speeds[i],
                             station_id=uuid.uuid4().hex
-                            ) for i in range(length - 1)]
+                            ) for i in range(length)]
         # This leads to an exception so I commented it out for now
         #self.car_list = list_of_cars
         return list_of_cars
@@ -78,6 +78,9 @@ class Car:
         self._is_priority = is_priority
         self._max_charging_speed = max_charging_speed
         self._station_id = station_id
+        
+    def return_values(self):
+        return self.__dict__
 
     def print_values(self):
         print(self.__dict__)
