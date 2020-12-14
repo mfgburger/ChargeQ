@@ -85,9 +85,11 @@ class MainPage extends StatelessWidget {
                                         "TIME UNTIL\nCHARGED", "13", "min"),
                                     Spacer(),
                                     ToggleSwitch(
-                                      minWidth: 120.0,
+                                      minWidth: 100.0,
                                       initialLabelIndex: 1,
                                       cornerRadius: 20.0,
+                                      fontSize: 12,
+                                      iconSize: 12,
                                       activeFgColor: Colors.white,
                                       inactiveBgColor: Colors.black12,
                                       inactiveFgColor: Colors.black45,
@@ -108,7 +110,7 @@ class MainPage extends StatelessWidget {
                             Positioned.fill(
                                 child: Align(
                               alignment: Alignment.topRight,
-                              child: car(),
+                              child: car(150),
                             )),
                           ],
                         ),
