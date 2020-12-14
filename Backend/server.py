@@ -6,7 +6,7 @@
 from flask import Flask
 from flask_cors import CORS
 
-# Import our optimizer
+# Import our data generator
 from generator import return_dict_of_random_cars
 
 app = Flask(__name__)
