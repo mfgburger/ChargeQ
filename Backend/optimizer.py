@@ -70,6 +70,9 @@ class Car:
         self._max_charging_speed = max_charging_speed
         self._station_id = station_id
 
+    def return_values(self):
+        return self.__dict__
+
     def print_values(self):
         print(self.__dict__)
 
