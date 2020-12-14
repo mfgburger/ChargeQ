@@ -53,12 +53,20 @@
 
 <script type="text/javascript">
 
-fetch('http://localhost:5000/dummy')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
 const App = {
   data() {
+  
+    fetch('http://localhost:5000/cars')
+        .then(response => response.json())
+        .then(data => (testvar = Object.entries(data)[0][0]));
+        
+    console.log(testvar);
+
+        
+    for (car in this.data) {
+        console.log(car);
+    }
+  
     return {
       vehicles: [
         { id: 1, title: 'Car A' },

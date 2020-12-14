@@ -8,20 +8,20 @@ class CarList:
 
     def random_car_list(self, length=5):
         ranges = np.random.poisson(lam=10, size=length)  # in km
-        charges = np.random.uniform(low=0.0, high=1.0, size=length) # charge from 0-1
+        charges = np.around(np.random.uniform(low=0.0, high=1.0, size=length), 2) # charge from 0-1
         times = np.random.poisson(lam=10, size=length)  # in h
         priorities = np.random.randint(2, size=length) + 1  # 1: eco, 2: fast
         consumptions = [0.2]*length #kW/km #todo https://www.virta.global/blog/ev-charging-101-how-much-electricity-does-an-electric-car-use
         speeds = 10 ** (np.random.randint(2, size=length) + 1)  # 10kW or 100kW https://www.transportenvironment.org/sites/te/files/publications/01%202020%20Draft%20TE%20Infrastructure%20Report%20Final.pdf
         list_of_cars = [Car(id=uuid.uuid4().hex,
-                            state_of_charge = charges[i],
-                            target_range=ranges[i],
-                            hours_to_departure=times[i],
-                            consumption_per_km=consumptions[i],
-                            is_priority=priorities[i],
-                            max_charging_speed=speeds[i],
+                            state_of_charge = float(charges[i]),
+                            target_range=int(ranges[i]),
+                            hours_to_departure=int(times[i]),
+                            consumption_per_km=float(consumptions[i]),
+                            is_priority=int(priorities[i]),
+                            max_charging_speed=int(speeds[i]),
                             station_id=uuid.uuid4().hex
-                            ) for i in range(length - 1)]
+                            ) for i in range(length)]
         # This leads to an exception so I commented it out for now
         #self.car_list = list_of_cars
         return list_of_cars
@@ -78,6 +78,9 @@ class Car:
         self._is_priority = is_priority
         self._max_charging_speed = max_charging_speed
         self._station_id = station_id
+        
+    def return_values(self):
+        return self.__dict__
 
     def print_values(self):
         print(self.__dict__)
