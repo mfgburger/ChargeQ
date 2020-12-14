@@ -1,10 +1,9 @@
-from optimizer import CarList
+from optimizer import random_car_list
 
 def return_dict_of_random_cars(number_of_cars):
 
     # Generate list of random Car objects using random_car_list() from CarList:
-    carlist = CarList()
-    list_of_cars = carlist.random_car_list(number_of_cars)
+    list_of_cars = random_car_list(number_of_cars)
     
     # Compile a dict of dicts containing each cars properties:
     dict_of_random_cars = {}

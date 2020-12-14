@@ -2,6 +2,9 @@ import uuid
 import numpy as np
 
 
+def return_dict_of_random_cars(number_of_cars):
+    return random_car_list(length=5)
+
 def random_car_list(length=5):
     ranges = np.random.poisson(lam=10, size=length)  # in km
     charges = np.random.uniform(low=0.0, high=1.0, size=length)  # charge from 0-1
