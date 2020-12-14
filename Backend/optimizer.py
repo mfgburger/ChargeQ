@@ -40,6 +40,7 @@ def calculate_costs(list_of_cars):
     return list_of_cars
 
 def classical(list_of_cars):
+    # todo: formulate as a graph https: // stackoverflow.com / questions / 50179002 / graph - permutation - and -rotation - witn - networkx
     # calculate times
     # return loss
     sorted(list_of_cars, key=lambda car: car._cost)  # todo: naive
