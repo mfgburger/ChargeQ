@@ -15,12 +15,12 @@ def random_car_list(length=5):
     speeds = 10 ** (np.random.randint(2,
                                       size=length) + 1)  # 10kW or 100kW https://www.transportenvironment.org/sites/te/files/publications/01%202020%20Draft%20TE%20Infrastructure%20Report%20Final.pdf
     list_of_cars = [Car(id=uuid.uuid4().hex,
-                        state_of_charge=charges[i],
-                        target_range=ranges[i],
-                        hours_to_departure=times[i],
-                        kwh_per_km=consumptions[i],
-                        is_priority=priorities[i],
-                        max_charging_speed=speeds[i],
+                        state_of_charge=float(charges[i]),
+                        target_range=float(ranges[i]),
+                        hours_to_departure=float(times[i]),
+                        kwh_per_km=float(consumptions[i]),
+                        is_priority=int(priorities[i]),
+                        max_charging_speed=float(speeds[i]),
                         station_id=uuid.uuid4().hex
                         ) for i in range(length - 1)]
     return list_of_cars
