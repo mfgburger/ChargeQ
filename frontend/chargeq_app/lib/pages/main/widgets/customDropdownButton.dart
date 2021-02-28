@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
+/// A ChargeQ-Style dropdown button.
 class CustomDropdownButton extends StatelessWidget {
+  // The current value.
   final String value;
+  // What should be done when a selection has been changed.
   final Function(String) onChanged;
+  // The list of items to be shown in the dropdown.
   final List<String> items;
 
   const CustomDropdownButton({required this.value, required this.onChanged, required this.items});
