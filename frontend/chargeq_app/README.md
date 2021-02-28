@@ -2,7 +2,7 @@
 
 This app allows you to easily manage all charging settings of your electric vehicle! You can select the charging mode (eco for environmental- and battery friendly charging, or fast charge if you are on a hurry), see your charging details. Most importantly, the ChargeAssistant will take your trip information, make convenient charging choices for you and learn from your charging behaviour to make your experience even smoother! 
 
-![image](https://user-images.githubusercontent.com/37225049/109436250-ef759480-7a1e-11eb-9321-52f7f0a30cd2.png)
+![app](https://user-images.githubusercontent.com/37225049/109436265-0d42f980-7a1f-11eb-9a3a-5cbd790c647b.gif)
 
 # Release notes
 
