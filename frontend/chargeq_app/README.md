@@ -4,6 +4,8 @@ This app allows you to easily manage all charging settings of your electric vehi
 
 ![app](https://user-images.githubusercontent.com/37225049/109436394-96f2c700-7a1f-11eb-9fc2-971b85eadc16.gif)
 
+If you want to test the app, install the apk in the apk/ folder on your phone and open the app. 
+
 # Release notes
 
 This app is currently in the Mockup phase, so the backend calls are not supported yet, although they are generally implemented. The app is programmed in a modular way, so that future improvements on the should be easy. The app works on Android and iOS phones and tablets as well as on any device that runs a common Browser. It is also installable as web app.
