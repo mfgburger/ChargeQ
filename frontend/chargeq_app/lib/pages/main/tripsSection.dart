@@ -13,24 +13,15 @@ class _TripsSectionState extends State<TripsSection> {
     return Column(children: [
       Row(
         children: [
-          Text("Upcoming trips",
-              style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.black87)),
+          Text("Upcoming trips", style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: Colors.black87)),
           Spacer(),
           MaterialButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
               color: myGreen,
               onPressed: () {
-                showDialog(
-                    context: context,
-                    builder: (context) => TripDialog(isPriority: true));
+                showDialog(context: context, builder: (context) => TripDialog(true));
               },
-              child: Text("+ add trip",
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w600)))
+              child: Text("+ add trip", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600)))
         ],
       ),
       SingleDay(),
@@ -47,8 +38,7 @@ class SingleDay extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Today - 23.12.2020",
-              style: TextStyle(color: myGreen, fontWeight: FontWeight.w800)),
+          Text("Today - 23.12.2020", style: TextStyle(color: myGreen, fontWeight: FontWeight.w800)),
           SingleTrip(
               kWh: "15",
               title: "Doctor's visit",
@@ -70,12 +60,7 @@ class SingleDay extends StatelessWidget {
 class SingleTrip extends StatelessWidget {
   final String kWh, title, time, from, to;
 
-  SingleTrip(
-      {this.kWh = "",
-      this.title = "",
-      this.time = "",
-      this.from = "",
-      this.to = ""});
+  SingleTrip({this.kWh = "", this.title = "", this.time = "", this.from = "", this.to = ""});
 
   @override
   Widget build(BuildContext context) {
@@ -102,16 +87,11 @@ class SingleTrip extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 5),
                             child: Text(
                               kWh,
-                              style: TextStyle(
-                                  height: 0.8,
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 16),
+                              style: TextStyle(height: 0.8, fontWeight: FontWeight.w800, fontSize: 16),
                               textAlign: TextAlign.center,
                             ),
                           ),
-                          Text("kWh",
-                              style: TextStyle(fontSize: 10, height: 0.8),
-                              textAlign: TextAlign.center)
+                          Text("kWh", style: TextStyle(fontSize: 10, height: 0.8), textAlign: TextAlign.center)
                         ],
                       ))),
             ],
@@ -120,14 +100,12 @@ class SingleTrip extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title,
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800)),
+              Text(title, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800)),
               Text(time, style: TextStyle(fontSize: 12))
             ],
           ),
           Spacer(flex: 2),
-          Text(from,
-              style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
+          Text(from, style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600)),
           Spacer(),
           Icon(Icons.arrow_forward_ios, color: myGreen, size: 20),
           Spacer(),

@@ -9,8 +9,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _InitialStartupPageState extends State<LoginPage> {
-  TextEditingController _emailController, _passwordController;
-  String _errorMsg;
+  late TextEditingController _emailController, _passwordController;
+  String? _errorMsg;
 
   @override
   void initState() {
@@ -41,10 +41,7 @@ class _InitialStartupPageState extends State<LoginPage> {
               ),
               Text("Welcome!",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w700)),
+                  style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700)),
               Container(
                 margin: EdgeInsets.only(top: 10),
                 height: 40,
@@ -53,16 +50,11 @@ class _InitialStartupPageState extends State<LoginPage> {
                   style: Theme.of(context).textTheme.button,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius:
-                            const BorderRadius.all(const Radius.circular(10))),
+                        borderSide: BorderSide.none, borderRadius: const BorderRadius.all(const Radius.circular(10))),
                     filled: true,
                     fillColor: Colors.white,
                     labelText: "email",
-                    labelStyle: Theme.of(context)
-                        .textTheme
-                        .button
-                        .copyWith(color: Colors.black87),
+                    labelStyle: Theme.of(context).textTheme.button!.copyWith(color: Colors.black87),
                     //fillColor: Colors.green
                   ),
                 ),
@@ -76,16 +68,11 @@ class _InitialStartupPageState extends State<LoginPage> {
                   obscureText: true,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius:
-                            const BorderRadius.all(const Radius.circular(10))),
+                        borderSide: BorderSide.none, borderRadius: const BorderRadius.all(const Radius.circular(10))),
                     filled: true,
                     fillColor: Colors.white,
                     labelText: "password",
-                    labelStyle: Theme.of(context)
-                        .textTheme
-                        .button
-                        .copyWith(color: Colors.black87),
+                    labelStyle: Theme.of(context).textTheme.button!.copyWith(color: Colors.black87),
                     //fillColor: Colors.green
                   ),
                 ),
@@ -98,11 +85,8 @@ class _InitialStartupPageState extends State<LoginPage> {
                       padding: EdgeInsets.symmetric(horizontal: 5),
                       child: OutlineButton(
                           borderSide: BorderSide(color: Colors.white),
-                          shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
-                          child: Text("Register",
-                              style: TextStyle(color: Colors.white)),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                          child: Text("Register", style: TextStyle(color: Colors.white)),
                           onPressed: () {
                             FocusScope.of(context).requestFocus(FocusNode());
                           }),
@@ -113,18 +97,12 @@ class _InitialStartupPageState extends State<LoginPage> {
                       padding: EdgeInsets.symmetric(horizontal: 5),
                       child: RaisedButton(
                           color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
-                          child: Text("Log in",
-                              style: TextStyle(color: Colors.black87)),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                          child: Text("Log in", style: TextStyle(color: Colors.black87)),
                           onPressed: () {
                             FocusScope.of(context).requestFocus(FocusNode());
                             //TODO login
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MainPage()));
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPage()));
                           }),
                     ),
                   ),

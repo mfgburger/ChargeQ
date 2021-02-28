@@ -1,4 +1,3 @@
-import 'package:chargeq_app/res/theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomDropdownButton extends StatelessWidget {
@@ -6,8 +5,7 @@ class CustomDropdownButton extends StatelessWidget {
   final Function(String) onChanged;
   final List<String> items;
 
-  const CustomDropdownButton({Key key, this.value, this.onChanged, this.items})
-      : super(key: key);
+  const CustomDropdownButton({required this.value, required this.onChanged, required this.items});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +16,7 @@ class CustomDropdownButton extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 5),
             decoration: ShapeDecoration(
               shape: RoundedRectangleBorder(
-                side: BorderSide(
-                    color: Colors.black26,
-                    width: 1.0,
-                    style: BorderStyle.solid),
+                side: BorderSide(color: Colors.black26, width: 1.0, style: BorderStyle.solid),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
             ),
@@ -42,7 +37,7 @@ class CustomDropdownButton extends StatelessWidget {
                 );
               }).toList(),
               onChanged: (value) {
-                onChanged(value);
+                if (value != null) onChanged(value);
               },
             )));
   }

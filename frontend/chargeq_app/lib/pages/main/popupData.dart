@@ -1,6 +1,7 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'dart:io';
+
+import 'package:http/http.dart' as http;
 import 'package:uuid/uuid.dart';
 
 var uuid = Uuid();
@@ -8,26 +9,33 @@ var uuid = Uuid();
 class PopupData {
   String travelReason = travelReasons[0];
   DateTime travelDateTime;
-  String fromAddress = "", toAddress = "";
-  String repeat = repeatCycles[0];
+  String? fromAddress, toAddress;
+  String repeat;
   bool isPriority;
 
   PopupData(
-      {this.isPriority,
-      this.travelDateTime,
-      this.travelReason,
+      {required this.isPriority,
+      required this.travelDateTime,
+      required this.travelReason,
       this.fromAddress,
       this.toAddress,
-      this.repeat});
+      required this.repeat});
 
   void prepareAndSendBackend() {
     //TODO
-    var backendData = BackendData();
+    var backendData = BackendData(
+        stateOfCharge: 0.0,
+        targetRange: 1,
+        hoursToDeparture: 2,
+        consumptionKwPerKm: 30.2,
+        isPriority: true,
+        maxChargingSpeed: 10,
+        stationId: "alsd-d3fd-21d3");
   }
 }
 
 class BackendData {
-  String id;
+  late String id;
   double stateOfCharge;
   int targetRange;
   int hoursToDeparture;
@@ -37,13 +45,13 @@ class BackendData {
   String stationId;
 
   BackendData(
-      {this.stateOfCharge,
-      this.targetRange,
-      this.hoursToDeparture,
-      this.consumptionKwPerKm,
-      this.isPriority,
-      this.maxChargingSpeed,
-      this.stationId}) {
+      {required this.stateOfCharge,
+      required this.targetRange,
+      required this.hoursToDeparture,
+      required this.consumptionKwPerKm,
+      required this.isPriority,
+      required this.maxChargingSpeed,
+      required this.stationId}) {
     this.id = uuid.v4();
   }
 
@@ -60,27 +68,15 @@ class BackendData {
     };
 
     final response = await http.post('TODO_address',
-        headers: {HttpHeaders.contentTypeHeader: "application/json"},
-        body: jsonEncode(jsonMap));
+        headers: {HttpHeaders.contentTypeHeader: "application/json"}, body: jsonEncode(jsonMap));
     if (response.statusCode == 200 || response.statusCode == 201) {
-      return response.body;
+      print(response.body);
     } else {
       throw Exception('sending feedback error: ${response.body}');
     }
   }
 }
 
-const List<String> travelReasons = [
-  'Work',
-  'Home',
-  "Doctor's office",
-  "Undefined trip"
-];
+const List<String> travelReasons = ['Work', 'Home', "Doctor's office", "Undefined trip"];
 
-const List<String> repeatCycles = [
-  "never",
-  "daily",
-  "weekly",
-  "monthly",
-  "yearly"
-];
+const List<String> repeatCycles = ["never", "daily", "weekly", "monthly", "yearly"];
