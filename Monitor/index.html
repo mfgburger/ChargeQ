@@ -28,60 +28,78 @@
 <div class="container">
 
 <div class="row">
-  <div class="three columns">
+  <div class="four columns">
     <h1>ChargeQ</h1>
-    <h3>Dashboard</h3>
   </div>
 </div>
 
 <div class="row">
-  <div class="three columns">
+  <div class="four columns">
     <div id="vehicle-table-div">
-    <table>
-      <vehicle-table
-        v-for="vehicle in vehicles"
-        :key="vehicle.id"
-        :vehicle="vehicle"
-      ></vehicle-table>
-    </table>
+        <vehicle-table :vehicles="cars"></vehicle-table>
     </div>
   </div>
-  
 </div>
 
 </div>
 
 <script type="text/javascript">
 
-const App = {
-  data() {
-  
-    fetch('http://localhost:5000/cars')
-        .then(response => response.json())
-        .then(data => (testvar = Object.entries(data)[0][0]));
-        
-    console.log(testvar);
+var apiURL = "http://localhost:5000/";
 
-        
-    for (car in this.data) {
-        console.log(car);
+const app = Vue.createApp({
+  data: function() { 
+    return  {
+      cars: null
     }
+  },
+
+  created: function() {
+    this.fetchCars();
+    this.requestSchedule();
+  },
+
+  methods: {
   
-    return {
-      vehicles: [
-        { id: 1, title: 'Car A' },
-        { id: 2, title: 'Car B' },
-        { id: 3, title: 'Car C' }
-      ]
+    fetchCars: function() {
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      xhr.open("GET", apiURL + 'generate');
+      xhr.onload = function() {
+        self.cars = JSON.parse(xhr.responseText);
+      };
+      xhr.send();
+    },
+    
+    requestSchedule: function() {
+      var xhr = new XMLHttpRequest();
+      var self = this;
+      xhr.open("POST", apiURL + 'optimize');
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify(self.cars));
     }
+
   }
-}
-
-const app = Vue.createApp(App)
+})
 
 app.component('vehicle-table', {
-  props: ['vehicle'],
-  template: `<tr><th>{{ vehicle.id }}</th><th>{{ vehicle.title }}</th></tr>`
+  props: ['vehicles'],
+  template: `<table>
+               <thead>
+                 <tr>
+                   <th></th>
+                   <th>ID</th>
+                   <th>Charge</th>
+                 </tr>
+               </thead>
+               <tbody>
+                  <tr v-for="vehicle in vehicles" :key="vehicle._id">
+                    <td>&#x1F697</td>
+                    <td>{{ vehicle._id }}</td>
+                    <td>{{ Math.round((100 * vehicle._state_of_charge)) }} %</td>
+                  </tr>
+               </tbody>
+               </table>`
 })
 
 app.mount('#vehicle-table-div')
