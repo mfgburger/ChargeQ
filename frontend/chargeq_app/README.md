@@ -2,6 +2,10 @@
 
 This app allows you to easily manage all charging settings of your electric vehicle! You can select the charging mode (eco for environmental- and battery friendly charging, or fast charge if you are on a hurry), see your charging details. Most importantly, the ChargeAssistant will take your trip information, make convenient charging choices for you and learn from your charging behaviour to make your experience even smoother! 
 
+# Release notes
+
+This app is currently in the Mockup phase, so the backend calls are not supported yet, although they are generally implemented. The app is programmed in a modular way, so that future improvements on the should be easy. The app works on Android and iOS phones and tablets as well as on any device that runs a common Browser. It is also installable as web app.
+
 # ChargeQ - our mission
 
 With the rise of electric car users, the electricity grids of cities are in distress - the grids were not built for such a large traffic! There is an immediate need to balance the charging behaviour of the citizens in order to ensure that everyone can charge whenever they want, wherever they want without having to worry that it will shut down the grid. 
