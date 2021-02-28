@@ -16,3 +16,7 @@ The design mockup (Figma) can be found here: https://www.figma.com/proto/oBRDWft
 ![app2](https://user-images.githubusercontent.com/37225049/109436173-a7ef0880-7a1e-11eb-8f1b-ea52796c2f8f.png)
 ![app3](https://user-images.githubusercontent.com/37225049/109436176-a9b8cc00-7a1e-11eb-89ab-0257915a147c.png)
 ![app4](https://user-images.githubusercontent.com/37225049/109436177-aae9f900-7a1e-11eb-9401-4cd7cb164a90.png)
+
+# Developer setup
+To open the code, install Android Studio and the Flutter developer environment, make sure you are on the Flutter beta channel.
+Then, open the project in Android Studio and run it on a simulator or on a real phone with developer settings/debug mode enabled.
