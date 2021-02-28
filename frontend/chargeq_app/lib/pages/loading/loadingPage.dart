@@ -1,9 +1,7 @@
-import 'dart:async';
-
-import 'package:chargeq_app/pages/login/loginPage.dart';
 import 'package:chargeq_app/res/theme.dart';
 import 'package:flutter/material.dart';
 
+/// The loading screen, showing the logo in the center.
 class LoadingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,6 +14,7 @@ class LoadingPage extends StatelessWidget {
   }
 }
 
+// The logo animation that animates the logo from the center of the loading screen to the top of the login screen.
 class LogoHero extends StatelessWidget {
   Widget _flightShuttleBuilder(
     BuildContext flightContext,
@@ -41,17 +40,9 @@ class LogoHero extends StatelessWidget {
             children: [
               Spacer(),
               Text("ChargeQ",
-                  style: TextStyle(
-                      height: 0.8,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w800,
-                      fontSize: 40)),
+                  style: TextStyle(height: 0.8, color: Colors.white, fontWeight: FontWeight.w800, fontSize: 40)),
               Text("MyCharge",
-                  style: TextStyle(
-                      height: 0.9,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 25,
-                      color: Colors.black87)),
+                  style: TextStyle(height: 0.9, fontWeight: FontWeight.w700, fontSize: 25, color: Colors.black87)),
               Spacer()
             ],
           ),

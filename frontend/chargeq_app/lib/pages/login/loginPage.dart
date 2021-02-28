@@ -3,6 +3,7 @@ import 'package:chargeq_app/pages/main/mainPage.dart';
 import 'package:chargeq_app/res/theme.dart';
 import 'package:flutter/material.dart';
 
+/// The Login page, showing the login fields and two buttons to register or log in.
 class LoginPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _InitialStartupPageState();
@@ -35,13 +36,18 @@ class _InitialStartupPageState extends State<LoginPage> {
           child: ListView(
             shrinkWrap: true,
             children: <Widget>[
+              // The top section/header.
+              // The logo animation that animates the logo from the loading screen to the top of this screen.
               LogoHero(),
               Container(
                 height: MediaQuery.of(context).size.height * 0.15,
               ),
+
+              // The section with the fillable fields.
               Text("Welcome!",
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w700)),
+              // A text field for the email address.
               Container(
                 margin: EdgeInsets.only(top: 10),
                 height: 40,
@@ -59,6 +65,7 @@ class _InitialStartupPageState extends State<LoginPage> {
                   ),
                 ),
               ),
+              // A text field for the password.
               Container(
                 height: 40,
                 margin: EdgeInsets.symmetric(vertical: 10),
@@ -77,6 +84,8 @@ class _InitialStartupPageState extends State<LoginPage> {
                   ),
                 ),
               ),
+
+              //The row with the two buttons (register/log in).
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -101,7 +110,8 @@ class _InitialStartupPageState extends State<LoginPage> {
                           child: Text("Log in", style: TextStyle(color: Colors.black87)),
                           onPressed: () {
                             FocusScope.of(context).requestFocus(FocusNode());
-                            //TODO login
+                            //TODO login backend logic
+                            // Open the main page.
                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPage()));
                           }),
                     ),

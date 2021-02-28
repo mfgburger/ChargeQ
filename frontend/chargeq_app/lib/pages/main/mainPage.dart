@@ -1,9 +1,8 @@
 import 'package:chargeq_app/pages/main/sections/carInformationSection.dart';
+import 'package:chargeq_app/pages/main/sections/tripsSection.dart';
+import 'package:chargeq_app/pages/main/widgets/customPainter.dart';
 import 'package:chargeq_app/res/theme.dart';
 import 'package:flutter/material.dart';
-
-import 'file:///D:/UniMatter/Master/Semester2/QElab/ChargeQ/frontend/chargeq_app/lib/pages/main/sections/tripsSection.dart';
-import 'file:///D:/UniMatter/Master/Semester2/QElab/ChargeQ/frontend/chargeq_app/lib/pages/main/widgets/customPainter.dart';
 
 /// The main page of the App.
 /// It shows a header, the car information card, and a list of upcoming trips.
@@ -44,8 +43,10 @@ class MainPage extends StatelessWidget {
                       child: Text("Welcome back,Charlie!",
                           style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: Colors.white)),
                     ),
+
                     // The card showing the information about the current car charging status.
                     CarInformationSection(),
+
                     // The list of (mocked) trip data.
                     TripsSection(),
                   ],
